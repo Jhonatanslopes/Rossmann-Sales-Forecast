@@ -1,4 +1,4 @@
-![code](https://img.shields.io/static/v1?label=python&message=3.8&color=blue) ![license](https://img.shields.io/static/v1?label=license&message=MIT&color=<COLOR>) ![version](https://img.shields.io/static/v1?label=version&message=1.0&color=yellow) ![api](https://img.shields.io/static/v1?label=api&message=flask&color=red)
+![code](https://img.shields.io/static/v1?label=python&message=3.8&color=blue) ![license](https://img.shields.io/static/v1?label=license&message=MIT&color=<COLOR>) ![version](https://img.shields.io/static/v1?label=version&message=1.0&color=yellow) ![api](https://img.shields.io/static/v1?label=api&message=flask&color=red) ![deploy](https://img.shields.io/static/v1?label=deploy&message=heroku&color=orange)
 
 # Rossmann-Sales-Forecast
 
@@ -12,13 +12,18 @@ Previsão de Vendas das Próximas 6 Semanas para uma rede de farmacias.
 
 <!--ts-->
 
-1.  [Problema](#Contexto-do-Problema)
-2.  [Entendimento do Problema](#Entendimento-do-Problema)
-3.  [Dados](#Descricao-dos-Dados)
-4.  [Planejamento da Solução](#Planejamento-da-Solução)
-5.  [Hipóteses Principais](#Hipoteses-Principais)
-6.  [Resultado](#Resultado)
-7.  [Entrega da Solução](#Entrega-da-Solucao)
+1.  [Contexto do Problema](Contexto-do-Problema)
+2.  [O Problema](O-Problema)
+3.  [Entendimento do Problema](Entendimento-do-Problema)
+4.  [Dados](Descrição-de-Dados)
+5.  [Planejamento da Solução](Planejamento-da-Solução)
+6.  [Premissas Assumidas](Premissas-Assumidas)
+7.  [Hipóteses Principais](Hipóteses-Principais)
+8.  [Algoritmos ML](Algoritmos-de-Machine-Learning-Aplicados)
+9.  [Performace Modelos](Performace-dos-Modelos-de-Machine-Learning)
+10. [Resultados](Resultados)
+11. [Entrega da Solução](#Entrega-da-Solucao)
+
 <!--te-->
 
 # Contexto do Problema
@@ -153,7 +158,7 @@ O Dataset usado para este projeto possui 1017209 linhas e 18 colunas. Os dados c
   <img src="img/image_h4.jpg" width="1000" title="model_performance">
 </p>
 
-### H8. Lojas vendem mais ao longo dos anos.
+### H7. Lojas vendem mais ao longo dos anos.
 
 **FALSA** Lojas vendem menos ao longo dos anos.
 
@@ -161,7 +166,7 @@ O Dataset usado para este projeto possui 1017209 linhas e 18 colunas. Os dados c
   <img src="img/image_h8.jpg" width="1000" title="model_performance">
 </p>
 
-# Algoritmos de Machine Learning Aplicados.
+# Algoritmos de Machine Learning Aplicados
 
 Os modelo treinados foram:
 
@@ -178,9 +183,12 @@ O modelo escolhido para resolver o problema da Rossman foi:
 
 As métricas usadas para comparação dos resultados foram: MAE, MAPE, RMSE. Os resultados das performaces obtidas com a validação cruzada foi:
 
-<p align="center">
-  <img src="img/model_performance.jpg" width="1000" title="model_performance">
-</p>
+| Model Name        | MAE CV            | MAPE CV       | RMSE CV            |
+| ----------------- | ----------------- | ------------- | ------------------ |
+| Linear Regression | 1995.05 +/- 45.55 | 0.3 +/- 0.01  | 2847.67 +/- 97.29  |
+| Lasso             | 2035.93 +/- 60.74 | 0.29 +/- 0.0  | 2965.25 +/- 101.42 |
+| Random Forest     | 834.77 +/- 105.53 | 0.12 +/- 0.02 | 1275.72 +/- 193.23 |
+| XGBoost           | 1059.45 +/- 60.95 | 0.14 +/- 0.01 | 1543.4 +/- 99.71   |
 
 # Resultados
 
@@ -188,18 +196,36 @@ As métricas usadas para comparação dos resultados foram: MAE, MAPE, RMSE. Os 
 
 Facilitando a tomada de decisão, é possível observar os possíveis cenários, para exemplificar com uma amostra de 5 lojas, a loja de código 524 tem a predição de 321k de vendas para as próximas 6 semanas com um erro de 7%, isso representa um erro de 488 em vendas. No melhor cenário, a loja 524 venderá 322k e no pior 321k em vendas.
 
-<p align="center">
-  <img src="img/scenarios_store.JPG" width="1000" title="scenarios_store">
-</p>
+| store | predictions   | worst_scenario | best_scenario | MAE        | MAPE     |
+| ----- | ------------- | -------------- | ------------- | ---------- | -------- |
+| 524   | 321999.125000 | 321510.310433  | 322487.939567 | 488.814567 | 0.069453 |
+| 227   | 221946.562500 | 221550.341850  | 222342.783150 | 396.220650 | 0.069652 |
+| 831   | 452372.906250 | 451502.098765  | 453243.713735 | 870.807485 | 0.078171 |
+| 953   | 202348.296875 | 201947.753662  | 202748.840088 | 400.543213 | 0.082776 |
+| 739   | 393416.968750 | 392422.655511  | 394411.281989 | 994.313239 | 0.093148 |
 
 **Predição das próximas 6 semanas no total:**
 
-Para as vendas totais, a predição das próximas 6 semanas de todas as lojas é de 284M. No pior cenário, as vendas será de 283M e no melhor, será de 285M.
+Para as vendas totais, a predição das próximas 6 semanas de todas as lojas é de 284M. No pior cenário, as vendas serão de 283M e no melhor, será de 285M.
 
-<p align="center">
-  <img src="img/scenarios_total.JPG" width="1000" title="scenarios_total">
-</p>
+| Prediction       | worst_scenario   | best_scenario    |
+| ---------------- | ---------------- | ---------------- |
+| R$284,340,672.00 | R$283,589,141.12 | R$285,092,268.18 |
 
 # Entrega da Solução
 
-Deploy in construction.
+O modelo foi disponibilizado usando o Heroku Cloud e os resultados do modelo sendo acessados via telegram. Ao passar o código da loja, é retornado a predição das vendas da loja para as próximas 6 semanas.
+
+## Arquitetura Modelo em Produção
+
+<p align="center">
+  <img src="img/infra_deploy.jpg">
+</p>
+
+## Demonstração do Modelo
+
+Para acessar os resultados do modelo, confira [aqui](https://t.me/model_rossmann_bot). Caso não tenha uma conta cadastrada no aplicativo Telegram, realize uma para testar.
+
+<p align="center">
+  <img src="img/bot_telegram.gif">
+</p>
