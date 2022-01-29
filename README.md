@@ -155,7 +155,7 @@ O Dataset usado para este projeto possui 1017209 linhas e 18 colunas. Os dados c
 **FALSA** Lojas com promoções ativas por mais tempo vendem menos, depois de um certo período de promoção.
 
 <p align="center">
-  <img src="img/image_h4.jpg" width="1000" title="model_performance">
+  <img src="img/image_h4.JPG" width="1000" title="model_performance">
 </p>
 
 ### H7. Lojas vendem mais ao longo dos anos.
@@ -163,7 +163,7 @@ O Dataset usado para este projeto possui 1017209 linhas e 18 colunas. Os dados c
 **FALSA** Lojas vendem menos ao longo dos anos.
 
 <p align="center">
-  <img src="img/image_h8.jpg" width="1000" title="model_performance">
+  <img src="img/image_h8.JPG" width="1000" title="model_performance">
 </p>
 
 # Algoritmos de Machine Learning Aplicados
@@ -219,7 +219,7 @@ O modelo foi disponibilizado usando o Heroku Cloud e os resultados do modelo sen
 ## Arquitetura Modelo em Produção
 
 <p align="center">
-  <img src="img/infra_deploy.jpg">
+  <img src="img/infra_deploy.JPG" title="infra deploy">
 </p>
 
 ## Demonstração do Modelo
