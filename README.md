@@ -147,7 +147,7 @@ O Dataset usado para este projeto possui 1017209 linhas e 18 colunas. Os dados c
 **FALSA** Lojas com competidores mais próximos vendem Mais.
 
 <p align="center">
-  <img src="img/image_h2.jpg" width="1000" title="model_performance">
+  <img src="img/image_h2.JPG" width="1000" title="model_performance">
 </p>
 
 ### H4. Lojas com promoções ativas por mais tempo vendem mais
